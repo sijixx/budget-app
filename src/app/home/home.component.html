@@ -24,11 +24,11 @@
     <div id="expense-list">
       <div class="card mb-3" *ngFor="let expense of expenses">
         <div class="card-body">
-          <h5 class="card-title">{{ expense.name }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ expense.date }}</h6>
-          <p class="card-text">{{ expense.narration }}</p>
-          <p class="card-text">{{ expense.mode }}</p>
-          <p class="card-text">$ {{ expense.price }}</p>
+          <h5 class="card-name">{{ expense.name }}</h5>
+          <h6 class="card-date mb-2">{{ expense.date }}</h6>
+          <p class="card-narration">{{ expense.narration }}</p>
+          <p class="card-mode">{{ expense.mode }}</p>
+          <p class="card-price">$ {{ expense.price }}</p>
         </div>
       </div>
     </div>
