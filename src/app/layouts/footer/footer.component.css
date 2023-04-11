@@ -1,6 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-.drop-shadow {
+footer {
+    height: 100px;
+    padding-top: 30px;
+    padding-bottom: 20px;
     -webkit-box-shadow: 0px 0px 33px -10px rgba(0,0,0,0.4);
 -moz-box-shadow: 0px 0px 33px -10px rgba(0,0,0,0.4);
 box-shadow: 0px 0px 33px -10px rgba(0,0,0,0.4);
 }
+

@@ -1,0 +1,13 @@
+input {
+    background-color: #fefefe;
+    height: 60px;
+    padding-left: 20px;
+    display: inline-block;
+}
+
+.btn-expense{
+    height: 60px;
+    background-color: #e9eeff;
+    border: none;
+    color: #4772fe;
+}
