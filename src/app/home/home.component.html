@@ -1,19 +1,36 @@
 <div class="row justify-content-center md-3">
     <div class="col-md-4 text-center">
-        <h2>WELCOME</h2>
-        <P> Add your latest expense here </P>
+      <h2>WELCOME</h2>
+      <p>Add your latest expense here</p>
     </div>
-
-</div>
-
-<div class="container">
-    <form action="" class="form-inline row">
-      <div class="form-group col-md-10">
-        <input type="text" placeholder="Add your new expense here" name="categoryName" class="form-control-plaintext drop-shadow">
+  </div>
+  
+  <div class="container">
+    <form (ngSubmit)="addExpense()" #expenseForm="ngForm" class="form-inline row">
+      <div class="form-group col-md-8">
+        <input type="text" placeholder="Expense name here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.name" required>
+        <input type="date" placeholder="Expense date here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.date" required>
+        <input type="number" placeholder="Expense Price here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.price" required>
+        <input type="text" placeholder="Expense mode of payment here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.mode" required>
+        <input type="text" placeholder="Expense Narration here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.narration" required>
       </div>
-      <div class="form-group col-md-2">
-        <button type="submit" class="btn btn-primary btn-expense btn-block drop-shadow"> Add Expense </button>
+      <div class="form-group col-md-4">
+        <button type="submit" class="btn btn-primary btn-expense btn-block drop-shadow" [disabled]="!expenseForm.valid">Add Expense</button>
       </div>
     </form>
+  </div>
+  
+  <div class="container">
+    <div id="expense-list">
+      <div class="card mb-3" *ngFor="let expense of expenses">
+        <div class="card-body">
+          <h5 class="card-title">{{ expense.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ expense.date }}</h6>
+          <p class="card-text">{{ expense.narration }}</p>
+          <p class="card-text">{{ expense.mode }}</p>
+          <p class="card-text">$ {{ expense.price }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 
