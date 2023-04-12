@@ -3,16 +3,19 @@
       <h2>WELCOME</h2>
       <p>Add your latest expense here</p>
     </div>
+
+    <button *ngIf="!displayform" (click)="showform()" class="btn btn-primary btn-expense btn-block drop-shadow">Add Expense</button>
+    <button *ngIf="displayform" (click)="hideform()" class="btn btn-primary btn-expense btn-block drop-shadow">Close Form</button>
   </div>
   
-  <div class="container">
-    <form (ngSubmit)="addExpense()" #expenseForm="ngForm" class="form-inline row">
+  <div *ngIf="displayform" class="container">
+    <form (submit)="addExpense()" #expenseForm="ngForm" class="form-inline row">
       <div class="form-group col-md-8">
         <input type="text" placeholder="Expense name here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.name" required>
-        <input type="date" placeholder="Expense date here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.date" required>
-        <input type="number" placeholder="Expense Price here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.price" required>
-        <input type="text" placeholder="Expense mode of payment here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.mode" required>
-        <input type="text" placeholder="Expense Narration here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.narration" required>
+        <input type="date" placeholder="Expense date here" name="date" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.date" required>
+        <input type="number" placeholder="Expense Price here" name="price" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.price" required>
+        <input type="text" placeholder="Expense mode of payment here" name="mode" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.mode" required>
+        <input type="text" placeholder="Expense Narration here" name="narration" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.narration" required>
       </div>
       <div class="form-group col-md-4">
         <button type="submit" class="btn btn-primary btn-expense btn-block drop-shadow" [disabled]="!expenseForm.valid">Add Expense</button>
