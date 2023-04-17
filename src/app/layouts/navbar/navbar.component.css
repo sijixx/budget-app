@@ -1,16 +1,12 @@
-header {
-    height: 100px;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    margin-bottom: 50px;
-    -webkit-box-shadow: 0px 0px 33px -10px rgba(0,0,0,0.4);
-    -moz-box-shadow: 0px 0px 33px -10px rgba(0,0,0,0.4);
-    box-shadow: 0px 0px 33px -10px rgba(0,0,0,0.4);
-}
-
 .brand {
     background-color: #f3f6ff;
     padding: 10px 50px;
     border-radius: 50px;
     cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
+.example-spacer {
+    flex: 1 1 auto;
+  } 
