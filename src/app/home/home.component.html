@@ -4,36 +4,4 @@
       <p>Add your latest expense here</p>
     </div>
 
-    <button *ngIf="!displayform" (click)="showform()" class="btn btn-primary btn-expense btn-block drop-shadow">Add Expense</button>
-    <button *ngIf="displayform" (click)="hideform()" class="btn btn-primary btn-expense btn-block drop-shadow">Close Form</button>
-  </div>
   
-  <div *ngIf="displayform" class="container">
-    <form (submit)="addExpense()" #expenseForm="ngForm" class="form-inline row">
-      <div class="form-group col-md-8">
-        <input type="text" placeholder="Expense name here" name="name" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.name" required>
-        <input type="date" placeholder="Expense date here" name="date" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.date" required>
-        <input type="number" placeholder="Expense Price here" name="price" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.price" required>
-        <input type="text" placeholder="Expense mode of payment here" name="mode" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.mode" required>
-        <input type="text" placeholder="Expense Narration here" name="narration" class="form-control-plaintext drop-shadow" [(ngModel)]="newExpense.narration" required>
-      </div>
-      <div class="form-group col-md-4">
-        <button type="submit" class="btn btn-primary btn-expense btn-block drop-shadow" [disabled]="!expenseForm.valid">Add Expense</button>
-      </div>
-    </form>
-  </div>
-  
-  <div class="container">
-    <div id="expense-list">
-      <div class="card mb-3" *ngFor="let expense of expenses">
-        <div class="card-body">
-          <h5 class="card-name">{{ expense.name }}</h5>
-          <h6 class="card-date mb-2">{{ expense.date }}</h6>
-          <p class="card-narration">{{ expense.narration }}</p>
-          <p class="card-mode">{{ expense.mode }}</p>
-          <p class="card-price">$ {{ expense.price }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-

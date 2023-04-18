@@ -26,9 +26,6 @@ export class HomeComponent implements OnInit {
   }
 
   getexpenses() {
-
-    
-
     const expensesString = localStorage.getItem('expense');
     if (expensesString) {
       this.expenses = JSON.parse(expensesString).reverse();

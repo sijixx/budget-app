@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 
 @Component({
@@ -10,13 +10,6 @@ import { AddExpenseComponent } from './add-expense/add-expense.component';
 export class AppComponent {
   title = 'budget-app';
 
-  constructor(private _dialog: MatDialog) {
-
-  }
-
-  addExpenseForm() {
-    this._dialog.open(AddExpenseComponent)
-  }
 }
 
   
