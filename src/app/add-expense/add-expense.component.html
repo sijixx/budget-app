@@ -2,36 +2,36 @@
     <h2>Add New Expense</h2>
 </div>
 <form [formGroup]="expenseForm" (ngSubmit)="formSubmit()">
-<div mat-dialog-content class="form">
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Expense Name</mat-label>
-            <input matInput placeholder="Enter your last Expense" formControlName="expenseName">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="date">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+    <div mat-dialog-content class="form">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Expense Name</mat-label>
+                <input matInput placeholder="Enter your last Expense" formControlName="expenseName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Expense Amount</mat-label>
+                <input matInput type="number" placeholder="Enter Amount" formControlName="expenseAmount">
+            </mat-form-field>
+            <mat-radio-group aria-label="Select an option" formControlName="modeOfPayment">
+                <mat-label>Select mode of payment</mat-label>
+                <mat-radio-button value="cash">Cash Payment</mat-radio-button>
+                <mat-radio-button value="pos">POS</mat-radio-button>
+                <mat-radio-button value="onlinetransfer">Online Transfer</mat-radio-button>
+            </mat-radio-group>
+        </div>
     </div>
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Expense Amount</mat-label>
-            <input matInput type="number" placeholder="Enter Amount" formControlName="expenseAmount">
-        </mat-form-field>
-        <mat-radio-group aria-label="Select mode of payment" formControlName="modeOfPayment">
-            <mat-label>Select mode of payment</mat-label>
-            <mat-radio-button value="cash">Cash Payment</mat-radio-button>
-            <mat-radio-button value="pos">POS</mat-radio-button>
-            <mat-radio-button value="online-transfer">Online Transfer</mat-radio-button>
-        </mat-radio-group>
-    </div>
-</div>
 
-<div matDialogActions class="mat-form-field">
-    <button mat-raised-button>Cancel</button>
-    <button mat-raised-button color="primary" type="submit">Save</button>
-</div>
+    <div matDialogActions class="mat-form-field">
+        <button mat-raised-button>Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Save</button>
+    </div>
 </form>

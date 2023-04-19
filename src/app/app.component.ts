@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

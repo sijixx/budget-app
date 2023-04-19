@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "expenses": [
+    {
+      "expenseName": "Yakoyo Amala",
+      "date": "2023-04-16T23:00:00.000Z",
+      "expenseAmount": 1900,
+      "modeOfPayment": "cash",
+      "id": 1
+    },
+    {
+      "expenseName": "Chicken Rep Refuel",
+      "date": "2023-04-15T23:00:00.000Z",
+      "expenseAmount": 1350,
+      "modeOfPayment": "onlinetransfer",
+      "id": 2
+    },
+    {
+      "expenseName": "Chicken",
+      "date": "2023-04-20T23:00:00.000Z",
+      "expenseAmount": 1350,
+      "modeOfPayment": "cash",
+      "id": 3
+    }
+  ]
+}

@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import { ExpensesService } from '../services/expenses.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,62 +13,42 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class HomeComponent implements OnInit {
-  displayform = false;
+  displayedColumns: string[] = ['id', 'expenseName', 'date', 'expenseAmount', 'modeOfPayment'];
+  dataSource!: MatTableDataSource<any>;
 
-  newExpense: any = {
-    name: '',
-    price: 0,
-    date: '',
-    mode: '',
-    narration: ''
-  };
-
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  
   expenses: any = [];
 
-  constructor(){}
+  constructor(private dialog:MatDialog, private expenseService:ExpensesService){
+      }
 
   ngOnInit(): void {
     this.getexpenses();
   }
 
   getexpenses() {
-    const expensesString = localStorage.getItem('expense');
-    if (expensesString) {
-      this.expenses = JSON.parse(expensesString).reverse();
-    } else {
-      this.expenses = [];
-    }
-  }
+    this.expenseService.getExpenseList().subscribe({
+      next: (res: any[] | undefined) => {
+        this.dataSource = new MatTableDataSource (res);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      },
+      error: console.log,
+      
+    })
 
-  addExpense() {
-    const currentExpenses = JSON.parse(localStorage.getItem('expense') || '[]');
-    currentExpenses.push(this.newExpense);
-    localStorage.setItem('expense', JSON.stringify(currentExpenses));
-
-    this.getexpenses();
-    this.clearform();
-    
-  }
-
-  clearform(){
-    this.newExpense = {
-      name: '',
-      price: 0,
-      date: '',
-      mode: '',
-      narration: ''
-    };
-
-    this.displayform = false;
-  }
-
-  showform(){
-    this.displayform = true;
-  }
-
-  hideform(){
-    this.displayform = false;
-  }
-  
+     
 }
 
+applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  if (this.dataSource.paginator) {
+    this.dataSource.paginator.firstPage();
+  }
+}
+
+}
