@@ -74,8 +74,18 @@ deleteEpenses(id: number){
 }
 
 editExpenses(data: any){
-  this.dialog.open(AddExpenseComponent, {
+  const dialogRef = this.dialog.open(AddExpenseComponent, {
     data: data,
   } );
+  
+  dialogRef.afterClosed().subscribe({
+    next: (val) => {
+      if (val) {
+        this.getexpenses();
+      }
+    }
+  })
 }
+
+
 }

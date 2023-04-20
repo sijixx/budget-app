@@ -41,8 +41,8 @@
     {
       "expenseName": "Amala Amoke",
       "date": "2023-04-17T23:00:00.000Z",
-      "expenseAmount": 1000,
-      "modeOfPayment": "cash",
+      "expenseAmount": 1700,
+      "modeOfPayment": "onlinetransfer",
       "id": 4
     }
   ]
