@@ -21,25 +21,42 @@
         <!-- Expense Column -->
         <ng-container matColumnDef="expenseName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Expense Name </th>
-          <td mat-cell *matCellDef="let row"> {{row.expenseName}}% </td>
+          <td mat-cell *matCellDef="let row"> {{row.expenseName}} </td>
         </ng-container>
     
         <!-- Date Column -->
         <ng-container matColumnDef="date">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-          <td mat-cell *matCellDef="let row"> {{row.date | date }}% </td>
+          <td mat-cell *matCellDef="let row"> {{row.date | date }} </td>
         </ng-container>
 
          <!-- Expense Amount Column -->
          <ng-container matColumnDef="expenseAmount">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Expense Amount </th>
-          <td mat-cell *matCellDef="let row"> {{row.expenseAmount}}% </td>
+          <td mat-cell *matCellDef="let row"> {{row.expenseAmount | currency: '₦'}} </td>
         </ng-container>
 
          <!-- Mode of Payment Column -->
          <ng-container matColumnDef="modeOfPayment">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Mode of Payment </th>
-          <td mat-cell *matCellDef="let row"> {{row.modeOfPayment}}% </td>
+          <td mat-cell *matCellDef="let row"> {{row.modeOfPayment}} </td>
+        </ng-container>
+
+        <!-- action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let row"> 
+              <button mat-icon-button color="primary" (click)="editExpenses(row)">
+                <mat-icon>
+                  edit
+                </mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteEpenses(row.id)">
+                <mat-icon>
+                  delete
+                </mat-icon>
+              </button>
+          </td>
         </ng-container>
     
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -4,6 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ExpensesService } from '../services/expenses.service';
+import { AddExpenseComponent } from '../add-expense/add-expense.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ import { ExpensesService } from '../services/expenses.service';
 
 
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'expenseName', 'date', 'expenseAmount', 'modeOfPayment'];
+  displayedColumns: string[] = ['id', 'expenseName', 'date', 'expenseAmount', 'modeOfPayment', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -26,6 +27,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getexpenses();
+  }
+
+  openAddExpenseForm(){
+    const dialogref = this.dialog.open(AddExpenseComponent);
+    dialogref.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getexpenses();
+        }
+      }
+    })
   }
 
   getexpenses() {
@@ -50,5 +62,20 @@ applyFilter(event: Event) {
     this.dataSource.paginator.firstPage();
   }
 }
+ 
+deleteEpenses(id: number){
+  this.expenseService.deleteExpenses(id).subscribe({
+    next: (res) =>{
+      alert('Expenses Deleted');
+      this.getexpenses();
+    },
+    error: console.log,
+  })
+}
 
+editExpenses(data: any){
+  this.dialog.open(AddExpenseComponent, {
+    data: data,
+  } );
+}
 }

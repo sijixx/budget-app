@@ -32,11 +32,18 @@
       "id": 2
     },
     {
-      "expenseName": "Chicken",
-      "date": "2023-04-20T23:00:00.000Z",
-      "expenseAmount": 1350,
+      "expenseName": "Beach Party",
+      "date": "2023-04-19T23:00:00.000Z",
+      "expenseAmount": 20000,
       "modeOfPayment": "cash",
       "id": 3
+    },
+    {
+      "expenseName": "Amala Amoke",
+      "date": "2023-04-17T23:00:00.000Z",
+      "expenseAmount": 1000,
+      "modeOfPayment": "cash",
+      "id": 4
     }
   ]
 }
